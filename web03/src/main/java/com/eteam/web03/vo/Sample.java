@@ -1,6 +1,6 @@
 package com.eteam.web03.vo;
 
-public class sample {
+public class Sample {
 	private int sampleId; 		// sample.sample_id
 	private String sampleName;	// sample.sample_name
 	

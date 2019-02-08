@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eteam.web03.mapper.SampleMapper">
+	<select id="selectSampleList"
+			resultType="com.eteam.web03.vo.Sample">
+			SELECT
+				sample_id as sampleId,
+				sample_name as sampleName
+			FROM sample
+	</select>
+	
+	<select id="selectSampleOne"
+			resultType="com.eteam.web03.vo.Sample">
+		
+	</select>
+	
+	<insert id="insertSample"
+			parameterType="com.eteam.web03.vo.Sample">
+			INSERT
+			INTO sample (
+				sample_name
+			) VALUES (
+				#{sampleName}
+			)
+	</insert>
+	
+	<delete id="deleteSample"
+			parameterType="com.eteam.web03.vo.Sample">
+			DELETE
+			FROM sample (
+			)
+	</delete>
+	
+	<update id="updateSample">
+	
+	</update>
+</mapper>
