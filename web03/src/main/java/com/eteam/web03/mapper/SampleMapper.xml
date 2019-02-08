@@ -13,7 +13,11 @@
 	
 	<select id="selectSampleOne"
 			resultType="com.eteam.web03.vo.Sample">
-		
+			SELECT
+				sample_id as sampleId,
+				sample_name as sampleName
+			FROM sample
+			WHERE sample_id = #{sampleId}
 	</select>
 	
 	<insert id="insertSample"
@@ -29,11 +33,14 @@
 	<delete id="deleteSample"
 			parameterType="com.eteam.web03.vo.Sample">
 			DELETE
-			FROM sample (
-			)
+			FROM sample
+			WHERE sample_id = #{sampleId}
 	</delete>
 	
-	<update id="updateSample">
-	
+	<update id="updateSample"
+			parameterType="com.eteam.web03.vo.Sample">
+			UPDATE sample
+			SET sample_name = #{sampleName}
+			WHERE sample_id = #{sampleId}
 	</update>
 </mapper>
