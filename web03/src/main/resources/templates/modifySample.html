@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	</head>
+	<body>
+		<form action="/modifySample" method="post">
+			<fieldset style="width:300px; margin: auto;">
+				<legend>SampleAdd</legend>
+				<input type="text" name="sampleId" th:value="${sample.sampleId}" readonly>
+				<input type="text" name="sampleName" th:value="${sample.sampleName}">
+				<input type="submit" value="입력완료">
+			</fieldset>
+		</form>
+	</body>
+</html>

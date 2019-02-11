@@ -3,6 +3,8 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.eteam.web03.mapper.SampleMapper">
+	
+	<!-- 전체를 검색하기 위해 쓰는 쿼리 문장 -->
 	<select id="selectSampleList"
 			resultType="com.eteam.web03.vo.Sample">
 			SELECT
@@ -11,6 +13,10 @@
 			FROM sample
 	</select>
 	
+	<!--
+		하나의 샘플을 검색하기 위한 쿼리 문장
+		PrimaryKey인 sample_id를 검색해서 샘플을 검색한다.
+	 -->
 	<select id="selectSampleOne"
 			resultType="com.eteam.web03.vo.Sample">
 			SELECT
@@ -20,16 +26,21 @@
 			WHERE sample_id = #{sampleId}
 	</select>
 	
+	<!--
+		샘플을 등록하기 위한 쿼리 문장
+		이름을 등록하면 자동으로 sample_id는 PrimaryKey로 등록된다.
+	 -->
 	<insert id="insertSample"
 			parameterType="com.eteam.web03.vo.Sample">
-			INSERT
-			INTO sample (
+			INSERT INTO sample(
 				sample_name
-			) VALUES (
-				#{sampleName}
-			)
+			) VALUES (#{sampleName});
 	</insert>
 	
+	<!--
+		샘플을 삭제하기 위한 쿼리 문장
+		sample_id를 넣어 샘플을 삭제한다. 
+	 -->
 	<delete id="deleteSample"
 			parameterType="com.eteam.web03.vo.Sample">
 			DELETE
@@ -37,6 +48,10 @@
 			WHERE sample_id = #{sampleId}
 	</delete>
 	
+	<!-- 
+		샘플의 sample_name컬럼의 값을 수정하기 위한 쿼리 문장
+		PrimaryKey인 sample_id는 수정할 수 없다.
+	 -->
 	<update id="updateSample"
 			parameterType="com.eteam.web03.vo.Sample">
 			UPDATE sample
